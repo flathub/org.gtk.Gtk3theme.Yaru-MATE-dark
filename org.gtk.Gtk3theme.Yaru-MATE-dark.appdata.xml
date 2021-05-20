@@ -9,8 +9,8 @@
   </description>
   <url type="homepage">https://github.com/Jannomag/Yaru-Colors</url>
   <releases>
-        <release version="20.10.1" date="2020-11-04">
-            <description>Updated every theme to 20.10</description>
+        <release version="21.04" date="2021-05-02">
+            <description>Recreated everything on the base of Yaru 21.04</description>
         </release>
     </releases>
 </component>

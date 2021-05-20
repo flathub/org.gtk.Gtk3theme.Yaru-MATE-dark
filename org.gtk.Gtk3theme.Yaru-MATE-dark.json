@@ -1,6 +1,5 @@
 {
     "id": "org.gtk.Gtk3theme.Yaru-MATE-dark",
-    "branch": "3.22",
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "20.08",
     "sdk": "org.freedesktop.Sdk",
@@ -13,15 +12,15 @@
             "buildsystem": "simple",
             "build-commands": [
                 "mkdir -pm 755 /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0",
-                "cp -frL Yaru-MATE/gtk-3.20/assets/ /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/",
-                "cp -frL Yaru-MATE-dark/gtk-3.20/gtk.css /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/gtk.css"
+                "cp -frP Themes/Yaru-MATE/gtk-3.20/assets/ /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/",
+                "cp -frP Themes/Yaru-MATE-dark/gtk-3.20/gtk.css /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/gtk.css"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "archive-type": "tar-xz",
-                    "url": "https://github.com/Jannomag/Yaru-Colors/releases/download/20.10.1/Complete_Yaru-Colors-v20.10.1.tar.xz",
-                    "sha256": "c22abfef8d57f881868db59cfd72cb7f09969325b16c4a59f3890c2b98c16eb6"
+                    "archive-type": "tar-gzip",
+                    "url": "https://api.github.com/repos/Jannomag/Yaru-Colors/tarball/21.04snap",
+                    "sha256": "9068994fdf27a1ab44f8289752af67b0c6fe71ac57e0bd238d21531286554cca"
                 }
             ]
         },
