@@ -1,26 +1,64 @@
 {
     "id": "org.gtk.Gtk3theme.Yaru-MATE-dark",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "21.08",
     "sdk": "org.freedesktop.Sdk",
     "build-extension": true,
     "appstream-compose": false,
     "separate-locales": false,
+    "build-options": {
+        "prefix": "/usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0"
+    },
     "modules": [
         {
-            "name": "Yaru-MATE-dark",
-            "buildsystem": "simple",
-            "build-commands": [
-                "mkdir -pm 755 /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0",
-                "cp -frP Themes/Yaru-MATE/gtk-3.20/assets/ /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/",
-                "cp -frP Themes/Yaru-MATE-dark/gtk-3.20/gtk.css /usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/gtk.css"
+            "name": "sassc",
+            "config-opts": ["--with-libsass=/usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0"],
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/sass/sassc/archive/3.6.2.tar.gz",
+                    "sha256": "608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03"
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "autogen.sh",
+                    "commands": ["autoreconf -si"]
+                }
             ],
+            "modules": [
+                {
+                    "name": "libsass",
+                    "cleanup": ["*"],
+                    "sources": [
+                        {
+                            "type": "archive",
+                          "url": "https://github.com/sass/libsass/archive/3.6.5.tar.gz",
+                            "sha256": "89d8f2c46ae2b1b826b58ce7dde966a176bac41975b82e84ad46b01a55080582"
+                        },
+                        {
+                            "type": "script",
+                            "dest-filename": "autogen.sh",
+                            "commands": ["autoreconf -si"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Yaru-MATE-dark",
+            "buildsystem": "meson",
+            "build-options": {
+                "prefix": "/usr/share/runtime",
+                "append-path": "/usr/share/runtime/share/themes/Yaru-MATE-dark/gtk-3.0/bin",
+                "config-opts": [ "-Dicons=false", "-Dgnome-shell=false", "-Dsounds=false", "-Dsessions=false", "-Ddark=false", "-Dgtksourceview=false", "-Dmetacity=false" ]
+            },
             "sources": [
                 {
                     "type": "archive",
                     "archive-type": "tar-gzip",
-                    "url": "https://api.github.com/repos/Jannomag/Yaru-Colors/tarball/21.04snap",
-                    "sha256": "9068994fdf27a1ab44f8289752af67b0c6fe71ac57e0bd238d21531286554cca"
+                    "url": "https://api.github.com/repos/Jannomag/Yaru-Colors/tarball/21.10.3ubuntu5",
+                    "sha256": "78168a11d52932bfd7dce967120155290d4f1dbdc55cdd35644b8d40d0e9c534"
                 }
             ]
         },

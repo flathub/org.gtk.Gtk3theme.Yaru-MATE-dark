@@ -9,8 +9,19 @@
   </description>
   <url type="homepage">https://github.com/Jannomag/Yaru-Colors</url>
   <releases>
-        <release version="21.04" date="2021-05-02">
-            <description>Recreated everything on the base of Yaru 21.04</description>
+        <release version="21.10.3ubuntu5" date="2022-02-02">
+            <description>- New release specifically targeted for `ubuntu-21.10`
+- added support for `GTK4, GNOME-Shell 40,41`
+- Updated theme colors under [`what-if-21.10`](https://github.com/Jannomag/Yaru-Colors/tree/what-if-21.10) branch:
+  - Yaru-Aqua
+  - Yaru-Blue
+  - Yaru-Green
+  - Yaru-Lavender
+  - Yaru-Pink
+  - Yaru-Red
+  - Yaru-Yellow
+
+_Note: This release drops Yaru mixed colored-themes as it was dropped officially, so now Yaru-color-light is Yaru-color_</description>
         </release>
     </releases>
 </component>
